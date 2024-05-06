@@ -18,6 +18,16 @@ We split the superdense coding protocol into several steps:
 - Finally, we compose those steps into the complete superdense coding protocol.
 
 @[exercise]({
+    "id": "superdense_coding__protomessage",
+    "title": "Proto Message",
+    "path": "protomessage",
+    "qsDependencies": [
+        "../KatasLibrary.qs",
+        "./Common.qs"
+    ]
+})
+
+@[exercise]({
     "id": "superdense_coding__entangled_pair",
     "title": "Entangled Pair",
     "path": "entangled_pair",

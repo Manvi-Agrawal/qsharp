@@ -42,6 +42,8 @@ const libsDir = join(thisDir, "library");
 const vslsDir = join(thisDir, "language_service");
 const wasmDir = join(thisDir, "wasm");
 const npmDir = join(thisDir, "npm", "qsharp");
+const katasDir = join(thisDir, "katas");
+const samplesDir = join(thisDir, "samples");
 
 const isWin = process.platform === "win32";
 const npmCmd = isWin ? "npm.cmd" : "npm";
@@ -96,6 +98,24 @@ onRustChange();
 // Then watch the Rust directories for code changes
 [coreDir, libsDir, vslsDir, wasmDir].forEach((dir) =>
   subscribe(dir, onRustChange),
+);
+
+function onKatasAndSamplesChange() {
+  console.log("Recompiling katas and samples content");
+
+  const result = spawnSync(npmCmd, ["run", "generate"], {
+    cwd: npmDir,
+    shell: true,
+  });
+  console.log("Katas and samples recompiled!", result.stderr.toString());
+}
+
+// Do an initial build
+onKatasAndSamplesChange();
+
+// Watch the katas directories for code changes
+[katasDir, samplesDir].forEach((dir) =>
+  subscribe(dir, onKatasAndSamplesChange),
 );
 
 /**

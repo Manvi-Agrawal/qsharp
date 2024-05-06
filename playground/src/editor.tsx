@@ -189,6 +189,8 @@ export function Editor(props: {
 
     try {
       if (props.kataExercise) {
+        log.error("MANVI...");
+
         // This is for a kata exercise. Provide the sources that implement the solution verification.
         const sources = await getExerciseSources(props.kataExercise);
         // check uses the unrestricted profile and doesn't do code gen,
@@ -458,7 +460,7 @@ export function Editor(props: {
         <button
           class="main-button"
           onClick={onRun}
-          disabled={hasCheckErrors || props.compilerState === "busy"}
+          disabled={props.compilerState === "busy"}
         >
           Run
         </button>
