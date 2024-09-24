@@ -1,0 +1,9 @@
+{
+    "author": "Microsoft",
+    "license": "MIT",
+    "dependencies": {
+      "MyTeleportLib": {
+        "path": "../Project_B"
+        }
+      }
+}
