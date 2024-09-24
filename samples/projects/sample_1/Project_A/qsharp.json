@@ -2,8 +2,13 @@
     "author": "Microsoft",
     "license": "MIT",
     "dependencies": {
-      "MyTeleportLib": {
-        "path": "../Project_B"
+        "MyTeleportLib": {
+            "github": {
+                "owner": "Manvi-Agrawal",
+                "repo": "qsharp",
+                "ref": "460761f110f508a06fd1a4c21603782b89976191",
+                "path": "samples/projects/sample_1/Project_B"
+            }
         }
-      }
+    }
 }

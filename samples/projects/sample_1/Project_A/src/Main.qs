@@ -5,13 +5,12 @@ operation Main() : Unit {
     use target = Qubit();
 
     H(msg);
-    // Teleport(msg, target);    // calls the Teleport() operation from the MyTeleportLib namespace
+    Teleport(msg, target);    // calls the Teleport() operation from the MyTeleportLib namespace
     H(target);
 
     if M(target) == Zero {
-        Message("Teleported successfully!");
-
-    Reset(msg);
-    Reset(target);
+        Message("MANVI: Teleported successfully!");
+        Reset(msg);
+        Reset(target);
     }
 }

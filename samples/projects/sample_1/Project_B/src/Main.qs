@@ -1,14 +1,15 @@
 operation Teleport(msg : Qubit, target : Qubit) : Unit {
-        use here = Qubit();
+    Message("Project B: Running Teleport ...");
+    use here = Qubit();
 
-        PrepareBellPair(here, target);
-        Adjoint PrepareBellPair(msg, here);
+    PrepareBellPair(here, target);
+    Adjoint PrepareBellPair(msg, here);
 
-        if M(msg) == One { Z(target); }
-        if M(here) == One { X(target); }
+    if M(msg) == One { Z(target); }
+    if M(here) == One { X(target); }
 
-        Reset(here);
-    }
+    Reset(here);
+}
 
 operation PrepareBellPair(left : Qubit, right : Qubit) : Unit is Adj + Ctl {
     H(left);
